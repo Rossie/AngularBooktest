@@ -24,7 +24,7 @@
   
   <div class="row flex-column">
     <div *ngFor="let book of booklist | async">
-      <a class="" href="#" (click)="bookClick(book)" role="button">{{ book.title }}</a>
+      <a class="" [routerLink]="[ '/bookdetails', book.id ]" role="button">{{ book.volumeInfo.title }}</a>
     </div>
   </div>
     

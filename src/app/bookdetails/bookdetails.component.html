@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      
+      <div class="card">
+        <div class="card-header">
+          <h4>{{ book?.volumeInfo?.title }}</h4>
+        </div>
+        <div class="card-body">
+          <div class="card-text book-details">
+            <div class="label">authors</div>
+            <div class="mb-3">{{ book?.volumeInfo?.authors.join(', ')  }}</div>
+            <div class="label">description</div>
+            <div class="mb-3">{{ book?.volumeInfo?.description  }}</div>
+            <img [src]="book?.volumeInfo?.imageLinks?.small" class="img-fluid rounded-circle}" alt="">
+          </div>
+        </div>
+        <div class="card-footer text-muted">
+          <button type="button" (click)="addToCart()" class="btn btn-primary"><i class="fa fa-lg fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+          <app-cartwidget></app-cartwidget>
+        </div>
+      </div>
+        
+    </div>
+  </div>
+</div>
+
+<pre>
+  {{ book | json }}
+</pre>

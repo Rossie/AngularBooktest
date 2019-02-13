@@ -3,20 +3,21 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { BooksserviceService } from './books/booksservice.service';
+import { BooksserviceService } from './services/booksservice.service';
+import { CartserviceService } from './services/cartservice.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { BooksearchComponent } from './books/booksearch.component';
+import { BooksearchComponent } from './booksearch/booksearch.component';
 import { Routes } from '@angular/router';
-
-const routes: Routes = [
-  { path: '', component: BooksearchComponent }
-];
+import { BookdetailsComponent } from './bookdetails/bookdetails.component';
+import { CartwidgetComponent } from './cartwidget/cartwidget.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BooksearchComponent
+    BooksearchComponent,
+    BookdetailsComponent,
+    CartwidgetComponent
   ],
   imports: [
     FormsModule,
@@ -25,7 +26,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [BooksserviceService],
+  providers: [BooksserviceService, CartserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
