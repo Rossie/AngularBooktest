@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <H3>Search for books here</H3>
+      
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" id="" placeholder="Search by title" [formControl]="searchField">
+        <span class="input-group-btn">
+          <button type="button" (click)="search()" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i> Search!</button>
+          <button class="ml-3" (click)="multiHide = !multiHide">Multi search</button>
+        </span>
+      </div>
+
+      <div class="input-group mb-3" [hidden]="multiHide">
+        <input type="text" class="form-control" id="" placeholder="Search multiple title by comma" [formControl]="searchFieldMulti">
+        <span class="input-group-btn">
+          <button class="btn btn-primary" (click)="searchMulti()"><i class="fa fa-search" aria-hidden="true"></i> Multi search!</button>
+        </span>
+      </div>
+        
+    </div>
+
+  </div>
+  
+  <div class="row flex-column">
+    <div *ngFor="let book of booklist | async">
+      <a class="" href="#" (click)="bookClick(book)" role="button">{{ book.title }}</a>
+    </div>
+  </div>
+    
+</div>
