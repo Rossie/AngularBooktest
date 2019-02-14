@@ -11,13 +11,17 @@ import { BooksearchComponent } from './booksearch/booksearch.component';
 import { Routes } from '@angular/router';
 import { BookdetailsComponent } from './bookdetails/bookdetails.component';
 import { CartwidgetComponent } from './cartwidget/cartwidget.component';
+import { BooklistComponent } from './booklist/booklist.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BooksearchComponent,
     BookdetailsComponent,
-    CartwidgetComponent
+    CartwidgetComponent,
+    BooklistComponent,
+    CartComponent
   ],
   imports: [
     FormsModule,

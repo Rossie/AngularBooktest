@@ -1,0 +1,9 @@
+.cart-box {
+    position: fixed;
+    bottom: 0;
+    left: 70%;
+    border: 1px green solid;
+    border-radius: 4px;
+    padding: 8px;
+    background-color: lightgray;
+}

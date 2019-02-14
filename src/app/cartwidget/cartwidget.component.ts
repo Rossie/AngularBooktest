@@ -16,7 +16,6 @@ export class CartwidgetComponent implements OnInit {
 
   ngOnInit() {
     this.cart.books$.subscribe(books => {
-      console.log('subscribe books', books);
       this.cartcount = books.length;
     });
   }

@@ -22,10 +22,8 @@
 
   </div>
   
-  <div class="row flex-column">
-    <div *ngFor="let book of booklist | async">
-      <a class="" [routerLink]="[ '/bookdetails', book.id ]" role="button">{{ book.volumeInfo.title }}</a>
-    </div>
-  </div>
-    
+  <app-cartwidget></app-cartwidget>
+
+  <app-booklist [booklist]="booklist" ></app-booklist>
+
 </div>

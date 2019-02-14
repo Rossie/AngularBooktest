@@ -1,0 +1,5 @@
+<div *ngIf="booklist" class="row flex-column">
+  <div *ngFor="let book of booklist | async">
+    <a class="" [routerLink]="[ '/bookdetails', book.id ]" role="button">{{ book.volumeInfo.title }}</a>
+  </div>
+</div>
