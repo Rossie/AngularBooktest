@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { BooksearchComponent } from './booksearch/booksearch.component';
-import { Routes } from '@angular/router';
 import { BookdetailsComponent } from './bookdetails/bookdetails.component';
 import { CartwidgetComponent } from './cartwidget/cartwidget.component';
 import { BooklistComponent } from './booklist/booklist.component';
