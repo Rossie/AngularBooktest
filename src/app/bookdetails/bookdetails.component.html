@@ -4,15 +4,15 @@
       
       <div class="card">
         <div class="card-header">
-          <h4>{{ book?.volumeInfo?.title }}</h4>
+          <h4>{{ book?.title }}</h4>
         </div>
         <div class="card-body">
           <div class="card-text book-details">
             <div class="label">authors</div>
-            <div class="mb-3">{{ book?.volumeInfo?.authors.join(', ')  }}</div>
+            <div class="mb-3">{{ book?.authors.join(', ')  }}</div>
             <div class="label">description</div>
-            <div class="mb-3">{{ book?.volumeInfo?.description  }}</div>
-            <img [src]="book?.volumeInfo?.imageLinks?.small" class="img-fluid rounded-circle}" alt="">
+            <div class="mb-3">{{ book?.description  }}</div>
+            <img [src]="book?.imageLinks?.small" class="img-fluid rounded-circle}" alt="">
           </div>
         </div>
         <div class="card-footer text-muted">

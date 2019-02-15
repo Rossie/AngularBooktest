@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Book } from '../interfaces';
 
 @Component({
   selector: 'app-booklist',
@@ -9,7 +10,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class BooklistComponent implements OnInit {
 
-  @Input() booklist: Array<any>;
+  @Input() booklist: Book[];
 
   constructor() { }
 

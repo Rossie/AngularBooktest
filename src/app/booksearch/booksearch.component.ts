@@ -3,6 +3,7 @@ import { BooksserviceService } from '../services/booksservice.service';
 import { Observable, combineLatest } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
+import { Book } from '../interfaces';
 
 @Component({
   selector: 'app-booksearch',
@@ -12,7 +13,7 @@ import { FormControl } from '@angular/forms';
 })
 export class BooksearchComponent implements OnInit {
 
-  booklist: Observable<any>;
+  booklist: Observable<Book[]>;
   searchField: FormControl;
   searchFieldMulti: FormControl;
 
@@ -39,11 +40,11 @@ export class BooksearchComponent implements OnInit {
         // create array of http search for each comma separated string
         const searchAll$ = value.split(',').map(title => this.books.getBooksByTitle(title.trim()));
         // combine resulted observables and wait all of them ot produce result
-        this.booklist = combineLatest(...searchAll$).pipe(
+        this.booklist = combineLatest<Book[]>(...searchAll$).pipe(
           map(results => {
             // Comine all results into a flat array
             // extract 'volumeInfo' to flat array (not sure is there better solution than type casting here..)
-            return results.reduce((prev, curr) => [...prev as Array<any>, ...curr as Array<any>], []);
+            return results.reduce((prev, curr) => [...prev as Book[], ...curr as Book[]], []);
           }));
       }
     );
@@ -53,24 +54,12 @@ export class BooksearchComponent implements OnInit {
    * search
    */
   public search() {
-    /*this.books.getBooksByTitle(this.searchbook).subscribe(books => {
-      console.log(books);
-      this.booklist = books.map(book => book.volumeInfo);
-    });*/
     this.booklist = this.books.getBooksByTitle(this.searchField.value);
   }
 
   public searchMulti() {
-    // console.log(this.searchbookMulti);
-    // const searches = this.searchbookMulti.split(',').map(title => title.trim());
-    // console.log(searches);
+    // trigger 'valueChanges' Observable to emit value:
+    this.searchFieldMulti.setValue(this.searchFieldMulti.value);
   }
 
-  public toggleMulti() {
-    this.multiHide = !this.multiHide;
-  }
-
-  public bookClick(book) {
-    console.log(book);
-  }
 }

@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { BooksserviceService } from '../services/booksservice.service';
 import { Observable } from 'rxjs';
 import { CartserviceService } from '../services/cartservice.service';
+import { Book } from '../interfaces';
 
 @Component({
   selector: 'app-bookdetails',
@@ -12,7 +13,7 @@ import { CartserviceService } from '../services/cartservice.service';
 
 export class BookdetailsComponent implements OnInit {
 
-  book = {};
+  book: Book;
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');

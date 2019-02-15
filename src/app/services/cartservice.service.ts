@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
+import { Book } from '../interfaces';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartserviceService {
 
-  books$: BehaviorSubject<Array<any>> = new BehaviorSubject([]);
+  books$: BehaviorSubject<Book[]> = new BehaviorSubject([]);
 
   constructor() {
     this.loadBooks();
@@ -17,7 +18,7 @@ export class CartserviceService {
     this.books$.next(books);
   }
 
-  addBook(book: {}) {
+  addBook(book: Book) {
     const val = this.books$.getValue();
     val.push(book);
     this.books$.next(val);
